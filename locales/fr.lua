@@ -1,5 +1,3 @@
-Locales = {}
-
 Locales['fr'] = {
     ['already_wear'] = "Vous portez déjà une protection balistique.",
     ['wrong_gilet'] = "Vous devez porter un gilet pare-balles adéquat pour utiliser cette plaque.",

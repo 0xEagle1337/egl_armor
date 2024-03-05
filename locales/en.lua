@@ -1,5 +1,3 @@
-Locales = {}
-
 Locales['en'] = {
     ['already_wear'] = "You already wear ballistic protection.",
     ['wrong_gilet'] = "You must wear proper body armor to use this plate.",
