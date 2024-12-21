@@ -4,6 +4,13 @@ else
 	Core = exports["es_extended"]:getSharedObject()
 end
 
+function getPlayerFromId(source)
+	if config.Core == 'QB' then
+		Core.Functions.GetPlayer(source)
+	else
+		Core.GetPlayerFromId(source)
+	end
+
 function showNotification(message, type)
 	if config.Core == 'QB' then
 		Core.Notify(message, type)
@@ -21,11 +28,11 @@ function registerItems(itemName)
 end
 
 function removeItem(source, itemName, quantity)
+	local xPlayer = getPlayerFromId(source)
+	
 	if config.Core == 'QB' then
-		local xPlayer = Core.Functions.GetPlayer(source)
 		xPlayer.Functions.RemoveItem(itemName, quantity)
 	else
-		local xPlayer = Core.GetPlayerFromId(source)
 		xPlayer.removeInventoryItem(itemName, quantity)
 	end
 end
