@@ -15,8 +15,8 @@ function IsWearingAllowedBulletproofVest()
     return false
 end
 
-RegisterNetEvent('esx_bodyarmor:applyArmor')
-AddEventHandler('esx_bodyarmor:applyArmor', function(armorValue, itemName)
+RegisterNetEvent('egl_armor:applyArmor')
+AddEventHandler('egl_armor:applyArmor', function(armorValue, itemName)
     local playerPed = GetPlayerPed(-1)
     if GetPedArmour(playerPed) > 0 then
         showNotification(locale['already_wear'], 5000)
@@ -25,7 +25,7 @@ AddEventHandler('esx_bodyarmor:applyArmor', function(armorValue, itemName)
     else
         SetPedArmour(playerPed, armorValue)
         wearingArmor = true
-        TriggerServerEvent('esx_bodyarmor:removeItem', itemName)
+        TriggerServerEvent('egl_armor:removeItem', itemName)
         showNotification(locale['equipped'], 5000)
         CheckArmorDepletion()
     end
