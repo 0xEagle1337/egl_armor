@@ -9,7 +9,7 @@ local function applyBodyArmor(source, armorValue, itemName)
 end
 
 for i, itemName in ipairs(config.Items) do
-    Core.registerItems(itemName, function(source)
+    registerItems(itemName, function(source)
         applyBodyArmor(source, config.Armor[i], itemName)
     end)
 end
