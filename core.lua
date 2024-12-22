@@ -6,10 +6,11 @@ end
 
 function getPlayerFromId(source)
 	if config.Core == 'QB' then
-		Core.Functions.GetPlayer(source)
+		return Core.Functions.GetPlayer(source)
 	else
-		Core.GetPlayerFromId(source)
+		return Core.GetPlayerFromId(source)
 	end
+end
 
 function showNotification(message, type)
 	if config.Core == 'QB' then
@@ -19,20 +20,24 @@ function showNotification(message, type)
 	end
 end
 
-function registerItems(itemName)
-	if config.Core == 'QB' then
-		Core.Functions.CreateUseableItem(itemName)
-	else
-		Core.RegisterUsableItem(itemName)
-	end
+function registerItems(itemName, useCallback)
+    if config.Core == 'QB' then
+        return Core.Functions.CreateUseableItem(itemName, function(source)
+            useCallback(source)
+        end)
+    else
+        return Core.RegisterUsableItem(itemName, function(source)
+            useCallback(source)
+        end)
+    end
 end
 
-function removeItem(source, itemName, quantity)
+function removeItemfunction(source, itemName, quantity)
 	local xPlayer = getPlayerFromId(source)
 	
 	if config.Core == 'QB' then
-		xPlayer.Functions.RemoveItem(itemName, quantity)
+		return xPlayer.Functions.RemoveItem(itemName, quantity)
 	else
-		xPlayer.removeInventoryItem(itemName, quantity)
+		return xPlayer.removeInventoryItem(itemName, quantity)
 	end
 end

@@ -4,7 +4,7 @@ AddEventHandler('egl_armor:removeItem', function(itemName)
 end)
 
 local function applyBodyArmor(source, armorValue, itemName)
-    local xPlayer = getPlayerFromId(source)
+    local xPlayer = Core.GetPlayerFromId(source)
     TriggerClientEvent('egl_armor:applyArmor', source, armorValue, itemName)
 end
 
