@@ -14,7 +14,7 @@ end
 
 function showNotification(message, type)
 	if config.Core == 'QB' then
-		Core.Notify(message, type)
+		Core.Functions.Notify(message, type)
 	else
 		TriggerEvent('esx:showNotification', message)
 	end
@@ -32,7 +32,7 @@ function registerItems(itemName, useCallback)
     end
 end
 
-function removeItemfunction(source, itemName, quantity)
+function removeItem(source, itemName, quantity)
 	local xPlayer = getPlayerFromId(source)
 	
 	if config.Core == 'QB' then

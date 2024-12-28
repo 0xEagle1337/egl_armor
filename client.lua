@@ -19,14 +19,14 @@ RegisterNetEvent('egl_armor:applyArmor')
 AddEventHandler('egl_armor:applyArmor', function(armorValue, itemName)
     local playerPed = GetPlayerPed(-1)
     if GetPedArmour(playerPed) > 0 then
-        showNotification(locale['already_wear'], 5000)
+        showNotification(locale['already_wear'], "info")
     elseif not IsWearingAllowedBulletproofVest() then
-        showNotification(locale['wrong_gilet'], 5000)
+        showNotification(locale['wrong_gilet'], "info")
     else
         SetPedArmour(playerPed, armorValue)
         wearingArmor = true
         TriggerServerEvent('egl_armor:removeItem', itemName)
-        showNotification(locale['equipped'], 5000)
+        showNotification(locale['equipped'], "info")
         CheckArmorDepletion()
     end
 end)
@@ -40,13 +40,13 @@ function CheckArmorDepletion()
             if not IsWearingAllowedBulletproofVest() then
                 SetPedArmour(playerPed, 0)
                 wearingArmor = false
-                showNotification(locale['unequipped'], 5000)
+                showNotification(locale['unequipped'], "info")
                 break
             end
 
             if GetPedArmour(playerPed) == 0 then
                 wearingArmor = false
-                showNotification(locale['plate_destroyed'], 5000)
+                showNotification(locale['plate_destroyed'], "info")
                 break
             end
         end
