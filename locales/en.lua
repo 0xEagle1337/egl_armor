@@ -4,4 +4,6 @@ Locales['en'] = {
     ['equipped'] = "Ballistic protection equipped.",
     ['unequipped'] = "You took off your body armor and your protection was removed.",
     ['plate_destroyed'] = "Ballistic protection destroyed.",
+    ['already_full'] = "You already have maximum armor.",
+    ['max_armor_reached'] = "Maximum armor reached.",
 }

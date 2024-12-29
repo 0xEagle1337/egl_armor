@@ -4,4 +4,6 @@ Locales['fr'] = {
     ['equipped'] = "Protection balistique équipée.",
     ['unequipped'] = "Vous avez enlevé votre gilet pare-balles et votre protection a été retirée.",
     ['plate_destroyed'] = "Protection balistique détruite.",
+    ['already_full'] = "Vous avez déjà une armure maximale.",
+    ['max_armor_reached'] = "Armure maximale atteinte.",
 }

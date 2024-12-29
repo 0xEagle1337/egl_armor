@@ -18,18 +18,38 @@ end
 RegisterNetEvent('egl_armor:applyArmor')
 AddEventHandler('egl_armor:applyArmor', function(armorValue, itemName)
     local playerPed = GetPlayerPed(-1)
-    if GetPedArmour(playerPed) > 0 then
-        showNotification(locale['already_wear'], "info")
-    elseif not IsWearingAllowedBulletproofVest() then
+    local currentArmor = GetPedArmour(playerPed)
+    local maxArmor = 100
+
+    if not IsWearingAllowedBulletproofVest() then
         showNotification(locale['wrong_gilet'], "info")
+        return
+    end
+
+    if config.canReplace then
+        if currentArmor >= maxArmor then
+            showNotification(locale['already_full'], "info")
+            return
+        end
+        local newArmor = math.min(currentArmor + armorValue, maxArmor)
+        SetPedArmour(playerPed, newArmor)
+        if newArmor == maxArmor then
+            showNotification(locale['max_armor_reached'], "info")
+        end
     else
+        if currentArmor > 0 then
+            showNotification(locale['already_wear'], "info")
+            return
+        end
         SetPedArmour(playerPed, armorValue)
         wearingArmor = true
-        TriggerServerEvent('egl_armor:removeItem', itemName)
-        showNotification(locale['equipped'], "info")
-        CheckArmorDepletion()
     end
+
+    TriggerServerEvent('egl_armor:removeItem', itemName)
+    showNotification(locale['equipped'], "info")
+    CheckArmorDepletion()
 end)
+
 
 function CheckArmorDepletion()
     Citizen.CreateThread(function()
