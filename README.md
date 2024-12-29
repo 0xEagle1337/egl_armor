@@ -6,6 +6,7 @@ This script enriches the experience for players on FiveM servers using ESX or QB
 
     Realistic Ballistic Protection: Players can enhance their ballistic vests by using specific items, representing ballistic plates, to gain actual ballistic protection.
     Requirement for Actual Vest: Ensures ballistic protection is only provided when wearing an allowed vest from the Body Armor category, enhancing realism.
+    Configurable Replacement Logic: Administrators can choose whether players can add armor only when empty or incrementally fill the remaining armor space.
     ESX and QBCore Compatibility: Seamlessly integrates with the most popular frameworks, ensuring wide server compatibility.
     Intuitive Use: Interaction is straightforward, through the player's inventory, with no need for a complex user interface.
     Configurable Protection Levels: Administrators can set the armor value for each plate item, tailoring the level of protection to gameplay needs.
@@ -28,6 +29,7 @@ The config.lua file holds key settings to adapt the script to your server's spec
     Vest Items (config.Items): Defines the item names for your ballistic plates, like 'plate1', 'plate2', 'plate3', 'plate4'.
     Armor Values (config.Armor): Sets the amount of armor each plate provides, options include 25, 50, 75, 100.
     Allowed Vests (config.allowedVests): Lists the IDs of clothing allowed from the Body Armor category, ensuring compatibility and realism, such as 13, 22, 23, 24, 25, 26, 27, 29, 34, 39, 42, 44, 49, 51, 54, 60, 80.
+    Replacement Logic (config.canReplace): Determines whether players can use additional plates to incrementally fill armor (true) or only apply armor if completely empty (false).
 
 # 🤝 Contribution
 
