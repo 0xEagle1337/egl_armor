@@ -26,7 +26,7 @@ AddEventHandler('egl_armor:applyArmor', function(armorValue, itemName)
         return
     end
 
-    if config.canReplace then
+    if config.replaceMode == "fill" then
         if currentArmor >= maxArmor then
             showNotification(locale['already_full'], "info")
             return
@@ -36,19 +36,25 @@ AddEventHandler('egl_armor:applyArmor', function(armorValue, itemName)
         if newArmor == maxArmor then
             showNotification(locale['max_armor_reached'], "info")
         end
-    else
+
+    elseif config.replaceMode == "empty" then
         if currentArmor > 0 then
             showNotification(locale['already_wear'], "info")
             return
         end
         SetPedArmour(playerPed, armorValue)
         wearingArmor = true
+
+    elseif config.replaceMode == "override" then
+        SetPedArmour(playerPed, armorValue)
+        showNotification(locale['armor_replaced'], "info")
     end
 
     TriggerServerEvent('egl_armor:removeItem', itemName)
     showNotification(locale['equipped'], "info")
     CheckArmorDepletion()
 end)
+
 
 
 function CheckArmorDepletion()
