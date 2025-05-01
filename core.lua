@@ -16,7 +16,7 @@ function showNotification(message, type)
 	if config.Core == 'QB' then
 		Core.Functions.Notify(message, type)
 	else
-		TriggerEvent('esx:showNotification', message)
+		Core.ShowNotification(message)
 	end
 end
 

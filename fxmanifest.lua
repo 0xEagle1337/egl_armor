@@ -4,7 +4,7 @@ lua54 'yes'
 
 description 'egl_armor'
 author 'Eagle'
-version '1.2.0'
+version '1.3.0'
 
 shared_scripts {
     'locales_init.lua',
