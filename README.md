@@ -44,4 +44,4 @@ This project is licensed under the MIT License. For more details, refer to the L
 
 # 📞 Support and Contact
 
-For issues or questions, please open an issue on this GitHub repository or reach out to me on Discord: 0xeagle1337.
+For issues or questions, please open an issue on this GitHub repository,join my Discord community server: https://discord.gg/BCaP4CtJpP or reach out directly to me: 0xeagle1337.
