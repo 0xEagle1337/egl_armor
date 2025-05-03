@@ -13,7 +13,7 @@ This script enriches the experience for players on FiveM servers using ESX or QB
 
 # 🛠 Installation
 
-    Clone or download this GitHub repository.
+    Download the release last version.
     Place the script in your server's resources folder.
     Add start egl_armor to your server.cfg file.
     Tailor the script to your server by adjusting the config.lua file, defining armor values and compatible vests.
